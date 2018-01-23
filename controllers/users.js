@@ -7,9 +7,13 @@ module.exports = {
     },
     addOne: ( req, res ) => {
         knex( 'users' )
-            .insert( req.body )
-            .then( () => {
-                res.redirect( '/trips' )
+            .insert( req.body, '*' )
+            .then( ( user ) => {
+                req.session.user = user[ 0 ].id
+                req.session.save( () => {
+                    res.redirect( '/trips' )
+                } )
+
             } )
     }
 }
