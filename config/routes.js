@@ -11,5 +11,6 @@ module.exports = function ( app ) {
     //TRIPS:
     app.get( '/trips/', trips.index );
 
+    app.post( '/trips/', trips.create );
 
 }
