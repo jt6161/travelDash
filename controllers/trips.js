@@ -13,7 +13,7 @@ module.exports = {
         }
 
     },
-    addOne: ( req, res ) => {
+    create: ( req, res ) => {
         knex( 'trips' )
             .insert( req.body )
             .then( () => {

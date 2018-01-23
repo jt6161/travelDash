@@ -6,7 +6,7 @@ module.exports = function ( app ) {
     //HOME:
     app.get( '/', users.index );
 
-    app.post( '/users', users.addOne );
+    app.post( '/users', users.create );
 
     //TRIPS:
     app.get( '/trips/', trips.index );
