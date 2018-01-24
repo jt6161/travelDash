@@ -13,6 +13,10 @@ module.exports = function ( app ) {
 
     app.post( '/trips/', trips.create );
 
+    //AIRLINES:
+    app.get( '/airlines/', airlines.index );
+
+    app.post( '/airline/new', airlines.create );
 
 
     //FLIGHTS:
