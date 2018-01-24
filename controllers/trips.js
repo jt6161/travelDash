@@ -9,10 +9,10 @@ module.exports = {
       .then((dbTrips) => {
         knex('users')
           .where('id', req.session.user)
-          .then((dbRes) => {
+          .then((dbUsers) => {
             knex('flights')
               .then((dbFlights) => {
-                res.render('trips', { user: dbRes[0], trips: dbTrips, flights: dbFlights })
+                res.render('trips', { user: dbUsers[0], trips: dbTrips, flights: dbFlights })
               })
           })
       })

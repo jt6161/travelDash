@@ -69,8 +69,8 @@ When I submit this form I should be directed to '/airline'.
 
 __#8__
 ```
-As a airline
-When I visit "/airline"
+As an airline
+When I visit "/airlines"
 Then I see a list of all upcoming flights (for the airline I'm logged in as).
 ```
 
