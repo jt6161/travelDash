@@ -8,12 +8,22 @@
 
       <h1>Welcome <%= user.user_name %> </h1>
 
+      <h3>Upcoming Trips:</h3>
+      <ul>
+        <% for (let i = 0; i < trip.length; i++) { %>
+          <% for (let j = 0; j < flights.length; j++) { %>
+            <li> <%= trip[i].title %> : <%= flights[j].start %> - <%= flights[j].destination %> </li>
+            <% } %>
+        <% } %>
+      </ul>
+
+      <hr>
+
       <h3>Plan a trip:</h3>
       <form action="/trips" method="post">
-        <input type="number" name="user_id" placeholder="User ID">
         <input type="text" name="title" placeholder="Trip Title">
         <input type="text" name="trip_description" placeholder="Trip Desc">
-        <select name="flight_id" form="flight_id">
+        <select name="flight_id">
           <% for (let i = 0; i < flights.length; i++) { %>
             <option value="<%=flights[i].id%>"><%= flights[i].start %> - <%= flights[i].destination %></option>
           <% } %>
