@@ -12,7 +12,6 @@
 
   <h3>Plan Your Trip:</h3>
   <form action="/trips" method="post">
-    <input type="number" name="user_id" placeholder="User ID">
     <input type="text" name="title" placeholder="Trip Title">
     <input type="text" name="trip_description" placeholder="Trip Description">
     <select name="flight_id">
@@ -24,9 +23,13 @@
   </form>
 
   <h3>My Upcoming Trips:</h3>
-<div>
+  <div>
+    <% for (let j = 0; j < trip.length; j++) { %>
+    <p>Trip title:  <%=trip[j].title%></p>
+      <p>Trip description: <%=trip[j].trip_description%></p>
+       <% } %>
 
-</div>
+  </div>
 </body>
 
 </html>

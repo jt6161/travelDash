@@ -13,4 +13,9 @@ module.exports = function ( app ) {
 
     app.post( '/trips/', trips.create );
 
+
+
+    //FLIGHTS:
+
+
 }
