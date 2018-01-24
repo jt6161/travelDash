@@ -10,10 +10,8 @@
 
       <h3>Upcoming Trips:</h3>
       <ul>
-        <% for (let i = 0; i < trip.length; i++) { %>
-          <% for (let j = 0; j < flights.length; j++) { %>
-            <li> <%= trip[i].title %> : <%= flights[j].start %> - <%= flights[j].destination %> </li>
-            <% } %>
+        <% for (let i = 0; i < trips.length; i++) { %>
+          <b><%= trips[i].title %> From <%= trips[i].start %> to <%= trips[i].destination %></b><br>
         <% } %>
       </ul>
 

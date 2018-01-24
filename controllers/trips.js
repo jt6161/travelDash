@@ -4,19 +4,16 @@ module.exports = {
 
   index: (req, res) => {
     knex('trips')
-      .where('user_id', req.session.user)
+      .join('flights', 'trips.flight_id', 'flights.id')
+      .where('trips.user_id', req.session.user)
       .then((dbTrips) => {
-        knex('flights')
-          .then((dbFlights) => {
-            if (req.session.user) {
-              knex('users')
-                .where('id', req.session.user)
-                .then((dbRes) => {
-                  res.render('trips', { user: dbRes[0], flights: dbFlights, trip: dbTrips })
-                })
-            } else {
-              res.render('trips', { user: {}, flights: dbFlights, trip: dbTrips })
-            }
+        knex('users')
+          .where('id', req.session.user)
+          .then((dbRes) => {
+            knex('flights')
+              .then((dbFlights) => {
+                res.render('trips', { user: dbRes[0], trips: dbTrips, flights: dbFlights })
+              })
           })
       })
   },
