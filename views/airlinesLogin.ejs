@@ -8,6 +8,11 @@
 
     <h1>Please Login:</h1>
 
-    
+    <select name="airline_id">
+      <% for (let i = 0; i < airlines.length; i++) { %>
+        <option value="<%= airlines[i].id %>"><%= airlines[i].airline_name %></option>
+      <% } %>
+    </select>
+
   </body>
 </html>

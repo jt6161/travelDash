@@ -18,7 +18,10 @@ module.exports = {
   },
 
   login: (req, res) => {
-    res.render('airlinesLogin');
+    knex('airlines')
+      .then((dbAirlines) => {
+        res.render('airlinesLogin', { airlines: dbAirlines });
+      })
   }
 
 }

@@ -21,9 +21,4 @@ module.exports = function(app) {
 
   app.post('/airline/create', airlines.create);
 
-  // FLIGHTS :
-  app.get('/flights', flights.index);
-
-  app.post('/flight/create', flights.create);
-
 }
